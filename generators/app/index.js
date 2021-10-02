@@ -29,6 +29,10 @@ module.exports = class extends Generator {
                         value: 'interface',
                     },
                     {
+                        name: 'Create a callable',
+                        value: 'callable',
+                    },
+                    {
                         name: 'Create a document',
                         value: 'document',
                     },

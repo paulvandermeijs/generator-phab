@@ -56,6 +56,16 @@ Available generators are listed below. These will by default ask the least amoun
   yo phab:interface Api/MyInterface
   ```
 
+* ### phab:callable [<class_name>]
+
+  Creates a callable class using the `__invoke()` function.
+
+  The following command will create a callable class `Controller\MyController` relative to the working directory:
+
+  ```bash
+  yo phab:callable Controller/MyController
+  ```
+
 * ### phab:document
 
   Creates an empty document.
