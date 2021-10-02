@@ -29,12 +29,22 @@ yo phab
 Specific generators can also be called directly. E.g.:
 
 ```bash
-yo phab:interface
+yo phab:class
 ```
 
 ## Generators
 
 Available generators are listed below. These will by default ask the least amount of questions; to access advanced options use the `--advanced` option.
+
+* ### phab:class [<class_name>]
+
+  Creates an empty class.
+
+  The following command will create the class `Models\MyModel` relative to the working directory:
+
+  ```bash
+  yo phab:class Models/MyModel
+  ```
 
 * ### phab:interface [<interface_name>]
 

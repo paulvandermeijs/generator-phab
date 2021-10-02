@@ -1,0 +1,4 @@
+<% if (locals.type) { -%>
+    /** @var <%= type %> */
+<% } -%>
+<%= locals.visibility || 'private' %> <% if (locals.static) { %>static<% } %> <%= name %><% if (locals.default) { %> = <%- locals.default %><% } %>;

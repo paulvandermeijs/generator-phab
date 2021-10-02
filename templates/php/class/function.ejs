@@ -1,0 +1,10 @@
+<% if (locals.comment) { -%>
+    <%- include('../comment', { ...comment, locals: comment }) %>
+<% } -%>
+<% if (locals.abstract) { %>abstract<% } %> <% if (locals.final) { %>final<% } %> <%= locals.visibility || 'private' %> <% if (locals.static) { %>static<% } %> function <%= name %>(
+    <% (locals.parameters || []).forEach(function (parameter, index) { -%>
+        <%- include('function/parameter', { ...parameter, locals: parameter }) %><% if (index < parameters.length - 1) { %>,<% } %>
+    <% }) -%>
+)<% if (locals.type) { %>: <%= type %> <% } %> {
+    <%- (locals.body || '// TODO: Define this function') %>
+}

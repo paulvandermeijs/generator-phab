@@ -1,0 +1,17 @@
+<% if (locals.comment) { -%>
+    <%- include('comment', { ...comment, locals: comment }) %>
+<% } -%>
+<% if (locals.abstract) { %>abstract<% } %> <% if (locals.final) { %>final<% } %> class <%= name %> <% if (locals.extends) { %><%- include('class/extends', { name: locals.extends }) %><% } %> <% if (locals.implements) { %><%- include('class/implements', locals) %><% } %>
+{
+    <% (locals.consts || []).forEach(function (con) { -%>
+        <%- include('class/const', { ...con, locals: con }); %>
+    <% }) -%>
+
+    <% (locals.properties || []).forEach(function (property) { -%>
+        <%- include('class/property', { ...property, locals: property }); %>
+    <% }) -%>
+    
+    <% (locals.functions || []).forEach(function (fun) { -%>
+        <%- include('class/function', { ...fun, locals: fun }); %>
+    <% }) -%>
+}
