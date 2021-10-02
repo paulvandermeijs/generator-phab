@@ -1,0 +1,5 @@
+<%= (locals.begin || '/**') %>
+<% (locals.lines || []).forEach(function (line) { -%>
+    <%= (locals.prefix || ' * ') %><%- line %>
+<% }) -%>
+<%= (locals.end || ' */') -%>
