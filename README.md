@@ -29,12 +29,22 @@ yo phab
 Specific generators can also be called directly. E.g.:
 
 ```bash
-yo phab:document
+yo phab:interface
 ```
 
 ## Generators
 
 Available generators are listed below. These will by default ask the least amount of questions; to access advanced options use the `--advanced` option.
+
+* ### phab:interface [<interface_name>]
+
+  Creates an empty interface.
+
+  The following command will create the interface `Api\MyInterface` relative to the working directory:
+
+  ```bash
+  yo phab:interface Api/MyInterface
+  ```
 
 * ### phab:document
 

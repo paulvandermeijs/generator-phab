@@ -21,6 +21,10 @@ module.exports = class extends Generator {
                 message: 'What would you like to do?',
                 choices: [
                     {
+                        name: 'Create an interface',
+                        value: 'interface',
+                    },
+                    {
                         name: 'Create a document',
                         value: 'document',
                     },
