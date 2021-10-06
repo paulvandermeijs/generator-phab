@@ -124,6 +124,7 @@ module.exports = class extends Generator {
                     ...this.options,
                     destination,
                     document: {
+                        ...this.options.document,
                         body: await create(this.options.class),
                         namespace
                     }
