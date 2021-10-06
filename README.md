@@ -40,10 +40,10 @@ Available generators are listed below. These will by default ask the least amoun
 
   Creates an empty class.
 
-  The following command will create the class `Models\MyModel` relative to the working directory:
+  The following command will create the class `Model\MyModel` relative to the working directory:
 
   ```bash
-  yo phab:class Models/MyModel
+  yo phab:class Model/MyModel
   ```
 
 * ### phab:interface [<interface_name>]
@@ -89,3 +89,27 @@ EDITOR=$(which code) yo phab:document -o
 If a Composer file is found in any of the parent directories generators will use the autoload configuration from this file to resolve the namespace for the location where the command is called and prepend that to a class or interface.
 
 Default values for author and license will also be read from the Composer file.
+
+## Generator Composition
+
+These generators are set up to use options which can also be passed in from other generators using `this.composeWith()`.
+
+The following example will use the document generator to create a document that prints 'Hello, World!'.
+
+```javascript
+this.composeWith(
+    require.resolve('generator-phab/generators/document'),
+    {
+        contextRoot: this.contextRoot,
+        document: {
+            body: "echo 'Hello, World!';"
+        }
+    }
+);
+```
+
+When composing generators always pass in the context root as it will be reset to the project root by the generator's constructor.
+
+For a complete example of generator composition see the [callable generator](./generators/callable/index.js).
+
+More information about generator composition can be found in the [Yeoman docs](https://yeoman.io/authoring/composability.html).
