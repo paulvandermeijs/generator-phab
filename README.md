@@ -66,7 +66,7 @@ Available generators are listed below. These will by default ask the least amoun
   yo phab:callable Controller/MyController
   ```
 
-* ### phab:document
+* ### phab:document [<document_name>]
 
   Creates an empty document.
 

@@ -3,7 +3,7 @@
 // @ts-check
 
 const Generator = require('../base');
-const { createDocument } = require('../../services/php/document');
+const { normalizeName, createDocument } = require('../../services/php/document');
 const { spawn } = require("child_process");
 
 module.exports = class extends Generator {
@@ -26,6 +26,7 @@ module.exports = class extends Generator {
         this.argument('name', {
             type: String,
             description: 'The name for your document',
+            default: 'document',
             required: false
         });
     }
@@ -85,7 +86,7 @@ module.exports = class extends Generator {
         try {
             const document = await createDocument(this.options.document);
 
-            const destination = this.destinationPath(this.options.destination || 'document.php')
+            const destination = this.destinationPath(this.options.destination || `${this.contextRoot}/${normalizeName(this.options.name)}.php`)
 
             this.fs.write(
                 destination,
