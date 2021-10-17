@@ -5,6 +5,11 @@
     <% (locals.parameters || []).forEach(function (parameter, index) { -%>
         <%- include('function/parameter', { ...parameter, locals: parameter }) %><% if (index < parameters.length - 1) { %>,<% } %>
     <% }) -%>
-)<% if (locals.type) { %>: <%= type %> <% } %> {
-    <%- (locals.body || '// TODO: Define this function') %>
-}
+)<% if (locals.type) { %>: <%= type %> <% } %> 
+<% if (locals.abstract) { %>
+    ;
+<% } else { %>
+    {
+        <%- (locals.body || '// TODO: Define this function') %>
+    }
+<% } %>

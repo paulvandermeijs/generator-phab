@@ -1,4 +1,4 @@
-<% if (locals.type) { -%>
-    /** @var <%= type %> */
+<% if (locals.comment) { -%>
+    <%- include('../comment', { ...comment, locals: comment }) %>
 <% } -%>
-<%= locals.visibility || 'private' %> <% if (locals.static) { %>static<% } %> <%= name %><% if (locals.default) { %> = <%- locals.default %><% } %>;
+<%= locals.visibility || 'private' %> <% if (locals.static) { %>static<% } %> <%= type %> <%= name %><% if (locals.default) { %> = <%- locals.default %><% } %>;
