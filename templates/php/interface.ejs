@@ -1,7 +1,7 @@
 <% if (locals.comment) { -%>
     <%- include('comment', { ...comment, locals: comment }) %>
 <% } -%>
-interface <%= name %> <% if (locals.extends) { %><%- include('interface/extends', { name: locals.extends }) %><% } %> <% if (locals.implements) { %><%- include('interface/implements', locals) %><% } %>
+interface <%= name %> <% if (locals.extends) { %><%- include('interface/extends', { name: locals.extends }) %><% } %> <% if (locals.implements && locals.implements.length > 0) { %><%- include('interface/implements', locals) %><% } %>
 {
     <% (locals.consts || []).forEach(function (con) { -%>
         <%- include('interface/const', { ...con, locals: con }); %>
